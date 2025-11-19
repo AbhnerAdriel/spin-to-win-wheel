@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Trophy } from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface Prize {
   id: string;
@@ -20,6 +22,50 @@ interface WinnerDisplayProps {
 }
 
 export const WinnerDisplay = ({ winner, isOpen, onClose }: WinnerDisplayProps) => {
+  useEffect(() => {
+    if (isOpen && winner) {
+      // Trigger confetti explosion
+      const duration = 3000;
+      const animationEnd = Date.now() + duration;
+      
+      const randomInRange = (min: number, max: number) => {
+        return Math.random() * (max - min) + min;
+      };
+
+      const interval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          return;
+        }
+
+        const particleCount = 50;
+
+        confetti({
+          particleCount,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: randomInRange(0.1, 0.3),
+            y: Math.random() - 0.2,
+          },
+        });
+        confetti({
+          particleCount,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: randomInRange(0.7, 0.9),
+            y: Math.random() - 0.2,
+          },
+        });
+      }, 250);
+
+      return () => clearInterval(interval);
+    }
+  }, [isOpen, winner]);
+
   if (!winner) return null;
 
   return (
