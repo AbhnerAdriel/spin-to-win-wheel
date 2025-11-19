@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        wheel: {
+          1: "hsl(var(--wheel-color-1))",
+          2: "hsl(var(--wheel-color-2))",
+          3: "hsl(var(--wheel-color-3))",
+          4: "hsl(var(--wheel-color-4))",
+          5: "hsl(var(--wheel-color-5))",
+          6: "hsl(var(--wheel-color-6))",
+          7: "hsl(var(--wheel-color-7))",
+          8: "hsl(var(--wheel-color-8))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +90,21 @@ export default {
             height: "0",
           },
         },
+        "spin-wheel": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "bounce-in": {
+          "0%": { transform: "scale(0.5)", opacity: "0" },
+          "50%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-wheel": "spin-wheel 1s linear",
+        "bounce-in": "bounce-in 0.5s ease-out",
       },
     },
   },
