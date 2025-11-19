@@ -64,12 +64,12 @@ export const PrizeManager = ({ prizes, onPrizesChange }: PrizeManagerProps) => {
 
   return (
     <Card className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Manage Prizes</h2>
+      <h2 className="text-2xl font-bold mb-4">Gerenciar Azares</h2>
 
       {/* Add Prize */}
       <div className="flex gap-2 mb-6">
         <Input
-          placeholder="Enter prize name..."
+          placeholder="Digite o nome do azar..."
           value={newPrizeName}
           onChange={(e) => setNewPrizeName(e.target.value)}
           onKeyPress={(e) => handleKeyPress(e, addPrize)}
@@ -84,7 +84,7 @@ export const PrizeManager = ({ prizes, onPrizesChange }: PrizeManagerProps) => {
       <div className="space-y-2">
         {prizes.length === 0 ? (
           <p className="text-muted-foreground text-center py-8">
-            No prizes yet. Add your first prize above!
+            Nenhum azar ainda. Adicione seu primeiro azar acima!
           </p>
         ) : (
           prizes.map((prize) => (

@@ -78,10 +78,10 @@ export const WinnerDisplay = ({ winner, isOpen, onClose }: WinnerDisplayProps) =
             </div>
           </div>
           <DialogTitle className="text-center text-3xl">
-            Congratulations!
+            Que Azar!
           </DialogTitle>
           <DialogDescription className="text-center text-xl pt-4">
-            You won:
+            Você tirou:
           </DialogDescription>
         </DialogHeader>
         <div className="bg-primary/10 rounded-lg p-6 my-4">
@@ -90,7 +90,7 @@ export const WinnerDisplay = ({ winner, isOpen, onClose }: WinnerDisplayProps) =
           </p>
         </div>
         <Button onClick={onClose} className="w-full" size="lg">
-          Spin Again
+          Girar Novamente
         </Button>
       </DialogContent>
     </Dialog>
