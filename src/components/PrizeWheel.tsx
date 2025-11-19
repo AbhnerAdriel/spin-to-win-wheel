@@ -121,8 +121,8 @@ export const PrizeWheel = ({ prizes, isSpinning, onSpinComplete }: PrizeWheelPro
         // Determine winner
         const finalRotation = currentRotation % 360;
         const anglePerPrize = 360 / prizes.length;
-        // Pointer is at top (270 degrees in our rotation)
-        const adjustedRotation = (360 - finalRotation + 90) % 360;
+        // Pointer is at top (270 degrees in canvas coordinates)
+        const adjustedRotation = (270 - finalRotation + 360) % 360;
         const winnerIndex = Math.floor(adjustedRotation / anglePerPrize);
         onSpinComplete(prizes[winnerIndex]);
       }
