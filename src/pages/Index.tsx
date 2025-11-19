@@ -11,12 +11,12 @@ interface Prize {
 }
 
 const DEFAULT_PRIZES: Prize[] = [
-  { id: "1", name: "10% Off" },
-  { id: "2", name: "Free Shipping" },
-  { id: "3", name: "$50 Gift Card" },
-  { id: "4", name: "Try Again" },
-  { id: "5", name: "20% Off" },
-  { id: "6", name: "Free Item" },
+  { id: "1", name: "Lavar louça por 1 mês" },
+  { id: "2", name: "Pagar o jantar" },
+  { id: "3", name: "Fazer 50 flexões" },
+  { id: "4", name: "Tente novamente" },
+  { id: "5", name: "Limpar o banheiro" },
+  { id: "6", name: "Cortar a grama" },
 ];
 
 const Index = () => {
@@ -27,7 +27,7 @@ const Index = () => {
 
   const handleSpin = () => {
     if (prizes.length === 0) {
-      toast.error("Add at least one prize before spinning!");
+      toast.error("Adicione pelo menos um azar antes de girar!");
       return;
     }
     if (isSpinning) return;
@@ -35,7 +35,7 @@ const Index = () => {
     setIsSpinning(true);
     setWinner(null);
     setShowWinner(false);
-    toast.info("Spinning the wheel...");
+    toast.info("Girando a roleta...");
   };
 
   const handleSpinComplete = (winningPrize: Prize) => {
@@ -53,10 +53,10 @@ const Index = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Prize Wheel
+            Roleta do Azar
           </h1>
           <p className="text-lg text-muted-foreground">
-            Add your prizes, spin the wheel, and see what you win!
+            Adicione seus azares, gire a roleta e veja qual será o seu!
           </p>
         </div>
 
@@ -77,7 +77,7 @@ const Index = () => {
               size="lg"
               className="w-full sm:w-auto min-w-[200px] text-lg py-6"
             >
-              {isSpinning ? "Spinning..." : "Spin the Wheel!"}
+              {isSpinning ? "Girando..." : "Girar a Roleta!"}
             </Button>
           </div>
 
