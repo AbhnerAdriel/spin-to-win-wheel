@@ -38,15 +38,15 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
     
-    /* Wheel colors */
-    --wheel-color-1: 0 84% 60%;
-    --wheel-color-2: 45 93% 58%;
-    --wheel-color-3: 142 71% 45%;
-    --wheel-color-4: 217 91% 60%;
-    --wheel-color-5: 262 83% 58%;
-    --wheel-color-6: 340 82% 52%;
-    --wheel-color-7: 25 95% 53%;
-    --wheel-color-8: 173 80% 40%;
+    /* Wheel colors - vibrant and colorful */
+    --wheel-color-1: 0 100% 65%;      /* Bright Red */
+    --wheel-color-2: 45 100% 55%;     /* Bright Orange */
+    --wheel-color-3: 85 95% 50%;      /* Bright Yellow */
+    --wheel-color-4: 142 80% 50%;     /* Bright Green */
+    --wheel-color-5: 200 100% 60%;    /* Bright Blue */
+    --wheel-color-6: 262 90% 65%;     /* Bright Purple */
+    --wheel-color-7: 340 100% 60%;    /* Bright Pink */
+    --wheel-color-8: 173 90% 45%;     /* Bright Teal */
     
     /* Gradients */
     --gradient-background: linear-gradient(135deg, hsl(220 25% 97%) 0%, hsl(240 20% 95%) 100%);
