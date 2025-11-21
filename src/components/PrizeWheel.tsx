@@ -71,17 +71,44 @@ export const PrizeWheel = ({ prizes, isSpinning, onSpinComplete }: PrizeWheelPro
       ctx.lineWidth = 3;
       ctx.stroke();
 
-      // Draw text
+      // Draw text with wrapping
       ctx.save();
       ctx.rotate(startAngle + anglePerPrize / 2);
       ctx.textAlign = "center";
       ctx.fillStyle = "white";
-      ctx.font = "bold 16px sans-serif";
+      ctx.font = "bold 18px sans-serif";
       ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
       ctx.shadowBlur = 4;
       ctx.shadowOffsetX = 2;
       ctx.shadowOffsetY = 2;
-      ctx.fillText(prize.name, radius * 0.65, 0);
+      
+      // Wrap text if too long
+      const maxWidth = radius * 0.5;
+      const words = prize.name.split(' ');
+      const lines: string[] = [];
+      let currentLine = words[0];
+
+      for (let i = 1; i < words.length; i++) {
+        const testLine = currentLine + ' ' + words[i];
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && currentLine.length > 0) {
+          lines.push(currentLine);
+          currentLine = words[i];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      lines.push(currentLine);
+
+      // Draw lines centered
+      const lineHeight = 22;
+      const totalHeight = lines.length * lineHeight;
+      const startY = -(totalHeight / 2) + (lineHeight / 2);
+
+      lines.forEach((line, i) => {
+        ctx.fillText(line, radius * 0.6, startY + (i * lineHeight));
+      });
+      
       ctx.restore();
     });
 
@@ -140,11 +167,11 @@ export const PrizeWheel = ({ prizes, isSpinning, onSpinComplete }: PrizeWheelPro
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative flex justify-center">
       <canvas
         ref={canvasRef}
-        width={400}
-        height={400}
+        width={600}
+        height={600}
         className="max-w-full h-auto"
         style={{ filter: "drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15))" }}
       />
